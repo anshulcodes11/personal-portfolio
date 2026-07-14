@@ -1,33 +1,20 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
 function Projects() {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/projects")
-      .then((res) => {
-        console.log("Data:", res.data);
-        setProjects(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  console.log("Projects State:", projects);
+  const projects = [
+    {
+      id: 1,
+      title: "Personal Portfolio",
+      description: "Responsive Portfolio Website using React",
+      live: "https://YOUR-VERCEL-LINK.vercel.app",
+      github: "https://github.com/anshulcodes11/personal-portfolio",
+    },
+  ];
 
   return (
     <section id="projects" className="projects">
       <h2>My Projects</h2>
 
-      
-
-      
-
       {projects.map((project) => (
-        <div className="project-card" key={project._id}>
+        <div className="project-card" key={project.id}>
           <h3>{project.title}</h3>
           <p>{project.description}</p>
 
